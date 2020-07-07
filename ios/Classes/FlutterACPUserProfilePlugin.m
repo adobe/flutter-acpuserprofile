@@ -24,9 +24,15 @@ governing permissions and limitations under the License.
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
     if ([@"extensionVersion" isEqualToString:call.method]) {
         result([ACPUserProfile extensionVersion]);
+    } else if ([@"getUserAttributes" isEqualToString:call.method]) {
+        [self handleGetUserAttributes:call result:result];
     } else if ([@"removeUserAttribute" isEqualToString:call.method]) {
         NSString *attributeName = call.arguments;
         [ACPUserProfile removeUserAttribute:attributeName];
+        result(nil);
+    } else if ([@"removeUserAttributes" isEqualToString:call.method]) {
+        NSArray<NSString*>* userAttributes = call.arguments;
+        [ACPUserProfile removeUserAttributes:userAttributes];
         result(nil);
     } else if ([@"updateUserAttribute" isEqualToString:call.method]) {
         NSDictionary *dict = (NSDictionary *) call.arguments;
@@ -40,6 +46,19 @@ governing permissions and limitations under the License.
     } else {
         result(FlutterMethodNotImplemented);
     }
+}
+
+- (void)handleGetUserAttributes:(FlutterMethodCall *) call result:(FlutterResult)result {
+    NSArray<NSString*>* userAttributesToRetrieve = call.arguments;
+    [ACPUserProfile getUserAttributes:userAttributesToRetrieve withCompletionHandler:^(NSDictionary* _Nullable userAttributes, NSError* error) {
+        if(userAttributes != nil && userAttributes.count != 0) {
+            NSData* jsonData = [NSJSONSerialization dataWithJSONObject:userAttributes options:0 error:nil];
+            result([[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+        }
+        if(error){
+            result([NSString stringWithFormat:@"User profile request error code: %@", error]);
+        }
+    }];
 }
 
 @end

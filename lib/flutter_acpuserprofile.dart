@@ -12,9 +12,20 @@ class FlutterACPUserProfile {
     return version;
   }
 
+  /// Gets the current User Profile extension version.
+  static Future<String> getUserAttributes(List<String> attributeKeys) async {
+    final String userAttributes = await _channel.invokeMethod('getUserAttributes', attributeKeys ?? "");
+    return userAttributes;
+  }
+
   /// UserProfile API to remove the give attribute name
   static Future<void> removeUserAttribute(String attributeName) async {
     await _channel.invokeMethod<void>('removeUserAttribute', attributeName ?? "");
+  }
+
+  /// UserProfile API to remove the give attribute name
+  static Future<void> removeUserAttributes(List<String> attributeName) async {
+    await _channel.invokeMethod<void>('removeUserAttributes', attributeName ?? "");
   }
 
   /// UserProfile API to set user profile attributes keys and values.
