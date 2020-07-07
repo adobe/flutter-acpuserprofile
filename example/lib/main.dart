@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -13,6 +15,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _extensionVersion = 'Unknown';
+  String _userAttr = 'Unknown';
 
   @override
   void initState() {
@@ -37,6 +40,21 @@ class _MyAppState extends State<MyApp> {
 
     setState(() {
       _extensionVersion = extensionVersion;
+    });
+  }
+
+  Future<void> getUserAttrs() async {
+    String result = "";
+
+    try {
+      result = await FlutterACPUserProfile.getUserAttributes(["attrNameTest", "mapKey"]);
+    } on PlatformException {
+      log("Failed to get the user attributes");
+    }
+
+    if (!mounted) return;
+    setState(() {
+      _userAttr = result;
     });
   }
 
@@ -70,10 +88,20 @@ class _MyAppState extends State<MyApp> {
           child: ListView(shrinkWrap: true, children: <Widget>[
             getRichText('ACPUserProfile extension version: ',
                 '$_extensionVersion\n'),
+            getRichText('User attributes = ', '$_userAttr\n'),
+            RaisedButton(
+              child: Text("FlutterACPUserrofile.getUserAttributes"),
+              onPressed: () => getUserAttrs()
+            ),
             RaisedButton(
               child: Text("FlutterACPUserrofile.removeUserAttribute"),
               onPressed: () =>
                   FlutterACPUserProfile.removeUserAttribute("attrNameTest"),
+            ),
+            RaisedButton(
+              child: Text("FlutterACPUserrofile.removeUserAttributes"),
+              onPressed: () =>
+                  FlutterACPUserProfile.removeUserAttributes(["attrNameTest", "mapKey"]),
             ),
             RaisedButton(
               child: Text("FlutterACPUserrofile.updateUserAttribute"),
