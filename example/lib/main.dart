@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
     try {
       result = await FlutterACPUserProfile.getUserAttributes(["attrNameTest", "mapKey"]);
     } on PlatformException {
-      log("Failed to get experienceCloudId");
+      log("Failed to get the user attributes");
     }
 
     if (!mounted) return;

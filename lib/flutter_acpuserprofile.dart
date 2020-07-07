@@ -18,12 +18,12 @@ class FlutterACPUserProfile {
     return userAttributes;
   }
 
-  /// UserProfile API to remove the give attribute name
+  /// UserProfile API to remove the given attribute name
   static Future<void> removeUserAttribute(String attributeName) async {
     await _channel.invokeMethod<void>('removeUserAttribute', attributeName ?? "");
   }
 
-  /// UserProfile API to remove the give attribute name
+  /// UserProfile API to remove the given attribute name
   static Future<void> removeUserAttributes(List<String> attributeName) async {
     await _channel.invokeMethod<void>('removeUserAttributes', attributeName ?? "");
   }
