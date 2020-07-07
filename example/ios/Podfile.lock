@@ -1,0 +1,45 @@
+PODS:
+  - ACPCore (2.6.2):
+    - ACPCore/iOS (= 2.6.2)
+  - ACPCore/iOS (2.6.2)
+  - ACPUserProfile (2.1.0):
+    - ACPCore (~> 2.0)
+    - ACPUserProfile/iOS (= 2.1.0)
+  - ACPUserProfile/iOS (2.1.0):
+    - ACPCore (~> 2.0)
+  - Flutter (1.0.0)
+  - flutter_acpcore (0.0.1):
+    - ACPCore (~> 2.5)
+    - Flutter
+  - flutter_acpuserprofile (0.0.1):
+    - ACPUserProfile
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_acpcore (from `.symlinks/plugins/flutter_acpcore/ios`)
+  - flutter_acpuserprofile (from `.symlinks/plugins/flutter_acpuserprofile/ios`)
+
+SPEC REPOS:
+  trunk:
+    - ACPCore
+    - ACPUserProfile
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_acpcore:
+    :path: ".symlinks/plugins/flutter_acpcore/ios"
+  flutter_acpuserprofile:
+    :path: ".symlinks/plugins/flutter_acpuserprofile/ios"
+
+SPEC CHECKSUMS:
+  ACPCore: ffa0f1b849bb19becac78587e18721c278e34857
+  ACPUserProfile: 934b0d8136dc8b4c71e95c347ae733c4482d5b9d
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_acpcore: 781971fcbde815f237f85a4fb33539ffee53ab5d
+  flutter_acpuserprofile: 75970e03671a72d6657fca75eaf613c99fbbc717
+
+PODFILE CHECKSUM: 59f923a7c5d63904f078501340d66bc5ec8ed887
+
+COCOAPODS: 1.9.3
