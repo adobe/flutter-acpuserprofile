@@ -144,7 +144,7 @@ void main() {
     });
   });
 
-  group('updateUserAttribute', () {
+  group('updateUserAttributes', () {
     final Map<String, Object> testUserAttribute = {"testKey":"testValue"};
     final List<MethodCall> log = <MethodCall>[];
 
