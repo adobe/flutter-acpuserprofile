@@ -19,13 +19,152 @@ void main() {
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  setUp(() {
-    channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
+  group('extensionVersion', () {
+    final String testVersion = "1.1.0";
+    final List<MethodCall> log = <MethodCall>[];
+
+    setUp(() {
+      channel.setMockMethodCallHandler((MethodCall methodCall) async {
+        log.add(methodCall);
+        return testVersion;
+      });
+    });
+
+    test('invokes correct method', () async {
+      await FlutterACPUserProfile.extensionVersion;
+
+      expect(log, <Matcher>[
+        isMethodCall(
+          'extensionVersion',
+          arguments:null,
+        ),
+      ]);
+    });
+
+    test('returns correct result', () async {
+      expect(await FlutterACPUserProfile.extensionVersion, testVersion);
     });
   });
 
-  tearDown(() {
-    channel.setMockMethodCallHandler(null);
+  group('getUserAttributes', () {
+    final String testUserAttributes = "userAttributes";
+    final List<MethodCall> log = <MethodCall>[];
+
+    setUp(() {
+      channel.setMockMethodCallHandler((MethodCall methodCall) async {
+        log.add(methodCall);
+        return testUserAttributes;
+      });
+    });
+
+    test('invokes correct method', () async {
+      await FlutterACPUserProfile.getUserAttributes([testUserAttributes]);
+
+      expect(log, <Matcher>[
+        isMethodCall(
+          'getUserAttributes',
+          arguments:[testUserAttributes],
+        ),
+      ]);
+    });
+
+    test('returns correct result', () async {
+      String userAttributes = await FlutterACPUserProfile.getUserAttributes([testUserAttributes]);
+      expect(userAttributes, testUserAttributes);
+    });
   });
+
+  group('removeUserAttribute', () {
+    final String testUserAttribute = "userAttribute";
+    final List<MethodCall> log = <MethodCall>[];
+
+    setUp(() {
+      channel.setMockMethodCallHandler((MethodCall methodCall) async {
+        log.add(methodCall);
+        return null;
+      });
+    });
+
+    test('invokes correct method', () async {
+      await FlutterACPUserProfile.removeUserAttribute(testUserAttribute);
+
+      expect(log, <Matcher>[
+        isMethodCall(
+          'removeUserAttribute',
+          arguments:testUserAttribute,
+        ),
+      ]);
+    });
+  });
+
+  group('removeUserAttributes', () {
+    final String testUserAttribute = "userAttribute";
+    final List<MethodCall> log = <MethodCall>[];
+
+    setUp(() {
+      channel.setMockMethodCallHandler((MethodCall methodCall) async {
+        log.add(methodCall);
+        return null;
+      });
+    });
+
+    test('invokes correct method', () async {
+      await FlutterACPUserProfile.removeUserAttributes([testUserAttribute]);
+
+      expect(log, <Matcher>[
+        isMethodCall(
+          'removeUserAttributes',
+          arguments:[testUserAttribute],
+        ),
+      ]);
+    });
+  });
+
+  group('updateUserAttribute', () {
+    final String testUserAttribute = "userAttribute";
+    final String testUserAttributeValue = "userAttributeValue";
+    final List<MethodCall> log = <MethodCall>[];
+
+    setUp(() {
+      channel.setMockMethodCallHandler((MethodCall methodCall) async {
+        log.add(methodCall);
+        return null;
+      });
+    });
+
+    test('invokes correct method', () async {
+      await FlutterACPUserProfile.updateUserAttribute(testUserAttribute, testUserAttributeValue);
+
+      expect(log, <Matcher>[
+        isMethodCall(
+          'updateUserAttribute',
+          arguments: { "attributeName" : testUserAttribute, "attributeValue" : testUserAttributeValue },
+        ),
+      ]);
+    });
+  });
+
+  group('updateUserAttributes', () {
+    final Map<String, Object> testUserAttribute = {"testKey":"testValue"};
+    final List<MethodCall> log = <MethodCall>[];
+
+    setUp(() {
+      channel.setMockMethodCallHandler((MethodCall methodCall) async {
+        log.add(methodCall);
+        return null;
+      });
+    });
+
+    test('invokes correct method', () async {
+      await FlutterACPUserProfile.updateUserAttributes(testUserAttribute);
+
+      expect(log, <Matcher>[
+        isMethodCall(
+          'updateUserAttributes',
+          arguments: testUserAttribute,
+        ),
+      ]);
+    });
+  });
+
 }
