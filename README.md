@@ -42,7 +42,7 @@ String version = FlutterACPUserProfile.extensionVersion;
 
  ##### Registering the extension with ACPCore:
 
- > Note: It is required to initialize the SDK via native code inside your AppDelegate and MainApplication for iOS and Android respectively. For more information see how to initialize [Core](https://aep-sdks.gitbook.io/docs/getting-started/initialize-the-sdk).
+ > Note: It is required to initialize the SDK via native code inside your AppDelegate and MainApplication for iOS and Android respectively. For more information see how to initialize [Core](https://aep-sdks.gitbook.io/docs/getting-started/get-the-sdk#2-add-initialization-code).
 
  ##### **iOS**
  ```objective-c
