@@ -1,7 +1,6 @@
 name: flutter_acpuserprofile
 description: Adobe Experience Platform User Profile support for Flutter apps.
 version: 1.0.0
-author: Adobe Experience Platform SDK Team
 homepage: https://aep-sdks.gitbook.io/docs/
 repository: https://github.com/adobe/flutter-acpuserprofile
 
