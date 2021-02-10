@@ -11,7 +11,7 @@ PODS:
   - flutter_acpcore (0.0.1):
     - ACPCore (~> 2.5)
     - Flutter
-  - flutter_acpuserprofile (0.0.1):
+  - flutter_acpuserprofile (1.0.1):
     - ACPUserProfile
     - Flutter
 
@@ -38,8 +38,8 @@ SPEC CHECKSUMS:
   ACPUserProfile: 934b0d8136dc8b4c71e95c347ae733c4482d5b9d
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_acpcore: 781971fcbde815f237f85a4fb33539ffee53ab5d
-  flutter_acpuserprofile: 75970e03671a72d6657fca75eaf613c99fbbc717
+  flutter_acpuserprofile: a6d25197f25f252ccf9eec2426e48ccb90e2bcc3
 
 PODFILE CHECKSUM: 59f923a7c5d63904f078501340d66bc5ec8ed887
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
