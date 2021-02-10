@@ -10,7 +10,7 @@ Add `flutter_acpcore` and `flutter_acpuserprofile` to your dependencies in `pubs
 
 ```yaml
 dependencies:
-  flutter_acpcore: ">= 1.0.1"
+  flutter_acpcore: ">= 1.0.0"
   flutter_acpuserprofile: ">= 1.0.1"
 ```
 
