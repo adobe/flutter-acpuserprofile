@@ -4,20 +4,17 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.adobe.marketing.mobile.UserProfile;
-import com.adobe.marketing.mobile.AdobeCallback;
 import com.adobe.marketing.mobile.Identity;
 import com.adobe.marketing.mobile.InvalidInitException;
 import com.adobe.marketing.mobile.Lifecycle;
 import com.adobe.marketing.mobile.LoggingMode;
 import com.adobe.marketing.mobile.MobileCore;
 import com.adobe.marketing.mobile.Signal;
+import com.adobe.marketing.mobile.UserProfile;
 
 import io.flutter.app.FlutterApplication;
-import io.flutter.plugin.common.PluginRegistry;
-import io.flutter.plugins.GeneratedPluginRegistrant;
 
-public class MyApplication extends FlutterApplication implements PluginRegistry.PluginRegistrantCallback {
+public class MyApplication extends FlutterApplication {
 
     @Override
     public void onCreate() {
@@ -31,12 +28,7 @@ public class MyApplication extends FlutterApplication implements PluginRegistry.
             Lifecycle.registerExtension();
             Signal.registerExtension();
             UserProfile.registerExtension();
-            MobileCore.start(new AdobeCallback() {
-                @Override
-                public void call(Object o) {
-                    MobileCore.configureWithAppID("launch-ENf8ed5382efc84d5b81a9be8dcc231be1-development");
-                }
-            });
+            MobileCore.start(o -> MobileCore.configureWithAppID("launch-ENf8ed5382efc84d5b81a9be8dcc231be1-development"));
         } catch (InvalidInitException e) {
             Log.e("MyApplication", String.format("Error while registering extensions %s", e.getLocalizedMessage()));
         }
@@ -69,11 +61,6 @@ public class MyApplication extends FlutterApplication implements PluginRegistry.
             public void onActivityDestroyed(Activity activity) { /*no-op*/ }
         });
 
-    }
-
-    @Override
-    public void registerWith(PluginRegistry pluginRegistry) {
-        GeneratedPluginRegistrant.registerWith(pluginRegistry);
     }
 }
 
