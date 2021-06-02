@@ -1,8 +1,7 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'dart:async';
-
 import 'package:flutter/services.dart';
 import 'package:flutter_acpuserprofile/flutter_acpuserprofile.dart';
 
@@ -47,7 +46,10 @@ class _MyAppState extends State<MyApp> {
     String result = "";
 
     try {
-      result = await FlutterACPUserProfile.getUserAttributes(["attrNameTest", "mapKey"]);
+      result = await FlutterACPUserProfile.getUserAttributes([
+        "attrNameTest",
+        "mapKey",
+      ]);
     } on PlatformException {
       log("Failed to get the user attributes");
     }
@@ -81,41 +83,39 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
-        body: Center(
-          child: ListView(shrinkWrap: true, children: <Widget>[
-            getRichText('ACPUserProfile extension version: ',
-                '$_extensionVersion\n'),
-            getRichText('User attributes = ', '$_userAttr\n'),
-            RaisedButton(
-              child: Text("FlutterACPUserrofile.getUserAttributes"),
-              onPressed: () => getUserAttrs()
-            ),
-            RaisedButton(
-              child: Text("FlutterACPUserrofile.removeUserAttribute"),
-              onPressed: () =>
-                  FlutterACPUserProfile.removeUserAttribute("attrNameTest"),
-            ),
-            RaisedButton(
-              child: Text("FlutterACPUserrofile.removeUserAttributes"),
-              onPressed: () =>
-                  FlutterACPUserProfile.removeUserAttributes(["attrNameTest", "mapKey"]),
-            ),
-            RaisedButton(
-              child: Text("FlutterACPUserrofile.updateUserAttribute"),
-              onPressed: () =>
-                  FlutterACPUserProfile.updateUserAttribute("attrNameTest", "attrValueTest"),
-            ),
-            RaisedButton(
-              child: Text("FlutterACPUserrofile.updateUserAttributes"),
-              onPressed: () =>
-                  FlutterACPUserProfile.updateUserAttributes({"mapKey": "mapValue", "mapKey1": "mapValue1"}),
-            ),
-          ]),
-        )
-      ),
+          appBar: AppBar(
+            title: const Text('Plugin example app'),
+          ),
+          body: Center(
+            child: ListView(shrinkWrap: true, children: <Widget>[
+              getRichText(
+                  'ACPUserProfile extension version: ', '$_extensionVersion\n'),
+              getRichText('User attributes = ', '$_userAttr\n'),
+              ElevatedButton(
+                  child: Text("FlutterACPUserrofile.getUserAttributes"),
+                  onPressed: () => getUserAttrs()),
+              ElevatedButton(
+                child: Text("FlutterACPUserrofile.removeUserAttribute"),
+                onPressed: () =>
+                    FlutterACPUserProfile.removeUserAttribute("attrNameTest"),
+              ),
+              ElevatedButton(
+                child: Text("FlutterACPUserrofile.removeUserAttributes"),
+                onPressed: () => FlutterACPUserProfile.removeUserAttributes(
+                    ["attrNameTest", "mapKey"]),
+              ),
+              ElevatedButton(
+                child: Text("FlutterACPUserrofile.updateUserAttribute"),
+                onPressed: () => FlutterACPUserProfile.updateUserAttribute(
+                    "attrNameTest", "attrValueTest"),
+              ),
+              ElevatedButton(
+                child: Text("FlutterACPUserrofile.updateUserAttributes"),
+                onPressed: () => FlutterACPUserProfile.updateUserAttributes(
+                    {"mapKey": "mapValue", "mapKey1": "mapValue1"}),
+              ),
+            ]),
+          )),
     );
   }
 }

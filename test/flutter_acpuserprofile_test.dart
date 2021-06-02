@@ -11,8 +11,8 @@ governing permissions and limitations under the License.
 */
 
 import 'package:flutter/services.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_acpuserprofile/flutter_acpuserprofile.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   const MethodChannel channel = MethodChannel('flutter_acpuserprofile');
@@ -20,7 +20,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('extensionVersion', () {
-    final String testVersion = "1.1.0";
+    final String testVersion = "2.0.0";
     final List<MethodCall> log = <MethodCall>[];
 
     setUp(() {
@@ -36,7 +36,7 @@ void main() {
       expect(log, <Matcher>[
         isMethodCall(
           'extensionVersion',
-          arguments:null,
+          arguments: null,
         ),
       ]);
     });
@@ -63,13 +63,14 @@ void main() {
       expect(log, <Matcher>[
         isMethodCall(
           'getUserAttributes',
-          arguments:[testUserAttributes],
+          arguments: [testUserAttributes],
         ),
       ]);
     });
 
     test('returns correct result', () async {
-      String userAttributes = await FlutterACPUserProfile.getUserAttributes([testUserAttributes]);
+      String userAttributes =
+          await FlutterACPUserProfile.getUserAttributes([testUserAttributes]);
       expect(userAttributes, testUserAttributes);
     });
   });
@@ -91,7 +92,7 @@ void main() {
       expect(log, <Matcher>[
         isMethodCall(
           'removeUserAttribute',
-          arguments:testUserAttribute,
+          arguments: testUserAttribute,
         ),
       ]);
     });
@@ -114,7 +115,7 @@ void main() {
       expect(log, <Matcher>[
         isMethodCall(
           'removeUserAttributes',
-          arguments:[testUserAttribute],
+          arguments: [testUserAttribute],
         ),
       ]);
     });
@@ -133,19 +134,23 @@ void main() {
     });
 
     test('invokes correct method', () async {
-      await FlutterACPUserProfile.updateUserAttribute(testUserAttribute, testUserAttributeValue);
+      await FlutterACPUserProfile.updateUserAttribute(
+          testUserAttribute, testUserAttributeValue);
 
       expect(log, <Matcher>[
         isMethodCall(
           'updateUserAttribute',
-          arguments: { "attributeName" : testUserAttribute, "attributeValue" : testUserAttributeValue },
+          arguments: {
+            "attributeName": testUserAttribute,
+            "attributeValue": testUserAttributeValue
+          },
         ),
       ]);
     });
   });
 
   group('updateUserAttributes', () {
-    final Map<String, Object> testUserAttribute = {"testKey":"testValue"};
+    final Map<String, Object> testUserAttribute = {"testKey": "testValue"};
     final List<MethodCall> log = <MethodCall>[];
 
     setUp(() {
@@ -166,5 +171,4 @@ void main() {
       ]);
     });
   });
-
 }
