@@ -7,7 +7,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.0"
+    version: "2.6.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -58,11 +58,9 @@ packages:
   flutter_acpcore:
     dependency: "direct main"
     description:
-      path: "."
-      ref: "9a52db9bec20fa28a9348aefe25c3d3d47f45809"
-      resolved-ref: "9a52db9bec20fa28a9348aefe25c3d3d47f45809"
-      url: "https://github.com/adobe/flutter_acpcore.git"
-    source: git
+      name: flutter_acpcore
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "2.0.0"
   flutter_test:
     dependency: "direct dev"
@@ -101,7 +99,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.0"
+    version: "1.8.1"
   stack_trace:
     dependency: transitive
     description:
@@ -136,7 +134,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.19"
+    version: "0.3.0"
   typed_data:
     dependency: transitive
     description:
