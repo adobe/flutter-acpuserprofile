@@ -30,8 +30,7 @@ flutter test
 
 ## Usage
 
-### [UserProfile](https://developer.adobe.com/client-sdks/previous-versions/documentation/profile/)
-
+### UserProfile
 ##### Importing the SDK:
 ```dart
 import 'package:flutter_acpuserprofile/flutter_acpuserprofile.dart';
