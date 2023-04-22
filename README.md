@@ -2,7 +2,7 @@
 
 [![pub package](https://img.shields.io/pub/v/flutter_acpuserprofile.svg)](https://pub.dartlang.org/packages/flutter_acpuserprofile) ![Build](https://github.com/adobe/flutter-acpuserprofile/workflows/Dart%20Unit%20Tests%20+%20Android%20Build%20+%20iOS%20Build/badge.svg) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-`flutter_acpuserprofile` is a flutter plugin for the iOS and Android [AEP UserProfile SDK](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/profile) to allow for integration with flutter applications. Functionality to enable the UserProfile extension is provided entirely through Dart documented below.
+`flutter_acpuserprofile` is a flutter plugin for the iOS and Android [AEP UserProfile SDK](https://developer.adobe.com/client-sdks/previous-versions/documentation/profile/) to allow for integration with flutter applications. Functionality to enable the UserProfile extension is provided entirely through Dart documented below.
 
 ## Installation
 
@@ -30,8 +30,7 @@ flutter test
 
 ## Usage
 
-### [UserProfile](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/profile)
-
+### UserProfile
 ##### Importing the SDK:
 ```dart
 import 'package:flutter_acpuserprofile/flutter_acpuserprofile.dart';
@@ -44,7 +43,7 @@ String version = FlutterACPUserProfile.extensionVersion;
 
  ##### Registering the extension with ACPCore:
 
- > Note: It is required to initialize the SDK via native code inside your AppDelegate and MainApplication for iOS and Android respectively. For more information see how to initialize [Core](https://aep-sdks.gitbook.io/docs/getting-started/get-the-sdk#2-add-initialization-code).
+ > Note: It is required to initialize the SDK via native code inside your AppDelegate and MainApplication for iOS and Android respectively. For more information see how to initialize [Core](https://developer.adobe.com/client-sdks/previous-versions/documentation/mobile-core/api-reference/#registerextensions).
 
  ##### **iOS**
  ```objective-c
